@@ -11,16 +11,20 @@ import Hub from "@/pages/Hub";
 import Area from "@/pages/Area";
 import Calidad from "@/pages/Calidad";
 import Sostenibilidad from "@/pages/Sostenibilidad";
+import QuienesSomos from "@/pages/QuienesSomos";
+import Contacto from "@/pages/Contacto";
 
 function Router() {
   return (
     <MainLayout>
       <Switch>
         <Route path="/" component={Home} />
+        <Route path="/quienes-somos" component={QuienesSomos} />
         <Route path="/que-ofrecemos" component={Hub} />
         <Route path="/que-ofrecemos/:id" component={Area} />
         <Route path="/calidad" component={Calidad} />
         <Route path="/sostenibilidad" component={Sostenibilidad} />
+        <Route path="/contacto" component={Contacto} />
         
         {/* Fallback to 404 */}
         <Route component={NotFound} />
