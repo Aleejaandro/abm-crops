@@ -1,7 +1,49 @@
 import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useMutation } from "@tanstack/react-query";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { insertLeadSchema, type InsertLead } from "@shared/schema";
+import { useToast } from "@/hooks/use-toast";
+import { Form, FormControl,FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { apiRequest } from "@/lib/queryClient";
 
 export default function Contacto() {
+  const { toast } = useToast();
+  const form = useForm<InsertLead>({
+    resolver: zodResolver(insertLeadSchema),
+    defaultValues: {
+      company: "",
+      email: "",
+      area: "Consultas Ventas / Presupuestos",
+      message: "",
+    },
+  });
+
+  const mutation = useMutation({
+    mutationFn: async (data: InsertLead) => {
+      const res = await apiRequest("POST", "/api/leads", data);
+      return res.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Mensaje enviado",
+        description: "Nos pondremos en contacto con usted lo antes posible.",
+      });
+      form.reset();
+    },
+    onError: () => {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Hubo un problema al enviar su mensaje. Por favor, inténtelo de nuevo.",
+      });
+    },
+  });
+
   return (
     <div className="flex flex-col w-full bg-background">
       {/* Header */}
@@ -72,45 +114,88 @@ export default function Contacto() {
           {/* Formulario */}
           <div className="bg-card p-8 md:p-10 rounded-2xl border border-border shadow-sm">
             <h3 className="text-2xl font-bold mb-6">Envíenos su consulta</h3>
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">Nombre Completo</label>
-                  <input type="text" className="w-full p-3 rounded-md border border-input bg-background" placeholder="Juan Pérez" required />
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit((data) => mutation.mutate(data))} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <FormField
+                    control={form.control}
+                    name="company"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Empresa</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Nombre de su empresa" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Email Profesional</FormLabel>
+                        <FormControl>
+                          <Input type="email" placeholder="email@empresa.com" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">Empresa</label>
-                  <input type="text" className="w-full p-3 rounded-md border border-input bg-background" placeholder="Empresa S.A." required />
+                <FormField
+                  control={form.control}
+                  name="area"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Departamento / Motivo</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Seleccione un motivo" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="Consultas Ventas / Presupuestos">Consultas Ventas / Presupuestos</SelectItem>
+                          <SelectItem value="Calidad / Fichas Técnicas">Calidad / Fichas Técnicas</SelectItem>
+                          <SelectItem value="Logística / Seguimiento">Logística / Seguimiento</SelectItem>
+                          <SelectItem value="I+D / Marca Blanca">I+D / Marca Blanca</SelectItem>
+                          <SelectItem value="Otros">Otros</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Mensaje</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          placeholder="¿Cómo podemos ayudarle?" 
+                          className="h-32"
+                          {...field} 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <div className="flex items-start gap-3">
+                  <input type="checkbox" id="rgpd-contacto" className="mt-1" required />
+                  <label htmlFor="rgpd-contacto" className="text-xs text-muted-foreground">
+                    Acepto la Política de Privacidad y el tratamiento de mis datos para la gestión de esta consulta comercial (RGPD).
+                  </label>
                 </div>
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Email Profesional</label>
-                <input type="email" className="w-full p-3 rounded-md border border-input bg-background" placeholder="email@empresa.com" required />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Departamento / Motivo</label>
-                <select className="w-full p-3 rounded-md border border-input bg-background">
-                  <option>Consultas Ventas / Presupuestos</option>
-                  <option>Calidad / Fichas Técnicas</option>
-                  <option>Logística / Seguimiento</option>
-                  <option>I+D / Marca Blanca</option>
-                  <option>Otros</option>
-                </select>
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Mensaje</label>
-                <textarea className="w-full p-3 rounded-md border border-input bg-background h-32" placeholder="¿Cómo podemos ayudarle?"></textarea>
-              </div>
-              <div className="flex items-start gap-3">
-                <input type="checkbox" id="rgpd-contacto" className="mt-1" required />
-                <label htmlFor="rgpd-contacto" className="text-xs text-muted-foreground">
-                  Acepto la Política de Privacidad y el tratamiento de mis datos para la gestión de esta consulta comercial (RGPD).
-                </label>
-              </div>
-              <Button type="submit" className="w-full" size="lg">
-                <Send className="w-4 h-4 mr-2" /> Enviar mensaje
-              </Button>
-            </form>
+                <Button type="submit" className="w-full" size="lg" disabled={mutation.isPending}>
+                  {mutation.isPending ? "Enviando..." : <><Send className="w-4 h-4 mr-2" /> Enviar mensaje</>}
+                </Button>
+              </form>
+            </Form>
           </div>
         </div>
       </section>

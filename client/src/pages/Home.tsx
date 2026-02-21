@@ -1,8 +1,50 @@
 import { Link } from "wouter";
 import { ArrowRight, ExternalLink, Leaf, ShieldCheck, Box, Package, Wheat, Sprout, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useMutation } from "@tanstack/react-query";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { insertLeadSchema, type InsertLead } from "@shared/schema";
+import { useToast } from "@/hooks/use-toast";
+import { apiRequest } from "@/lib/queryClient";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 export default function Home() {
+  const { toast } = useToast();
+  const form = useForm<InsertLead>({
+    resolver: zodResolver(insertLeadSchema),
+    defaultValues: {
+      company: "",
+      email: "",
+      area: "granel",
+      message: "",
+    },
+  });
+
+  const mutation = useMutation({
+    mutationFn: async (data: InsertLead) => {
+      const res = await apiRequest("POST", "/api/leads", data);
+      return res.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Solicitud enviada",
+        description: "Nuestro equipo comercial se pondrá en contacto con usted.",
+      });
+      form.reset();
+    },
+    onError: () => {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Hubo un problema al enviar su solicitud.",
+      });
+    },
+  });
+
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -246,46 +288,96 @@ export default function Home() {
           <h2 className="text-3xl font-bold mb-4">¿Hablamos de su próximo proyecto?</h2>
           <p className="text-muted-foreground mb-10">Nuestro equipo comercial le asesorará sobre la mejor solución para su industria.</p>
           
-          <form className="bg-card p-8 rounded-xl border border-border shadow-sm text-left">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <div>
-                <label className="block text-sm font-medium mb-2">Empresa</label>
-                <input type="text" className="w-full p-3 rounded-md border border-input bg-background" placeholder="Nombre de su empresa" />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-2">Email profesional</label>
-                <input type="email" className="w-full p-3 rounded-md border border-input bg-background" placeholder="email@empresa.com" />
-              </div>
-            </div>
-            <div className="mb-6">
-              <label className="block text-sm font-medium mb-2">¿En qué área está interesado?</label>
-              <select className="w-full p-3 rounded-md border border-input bg-background">
-                <option value="">Seleccione un área...</option>
-                <option value="granel">Granel / B2B</option>
-                <option value="marca-blanca">Marca Blanca</option>
-                <option value="ecologico">Ecológico</option>
-                <option value="semiprocesados">Semiprocesados</option>
-                <option value="otros">Otros</option>
-              </select>
-            </div>
-            <div className="mb-6">
-              <label className="block text-sm font-medium mb-2">Mensaje breve</label>
-              <textarea className="w-full p-3 rounded-md border border-input bg-background h-24" placeholder="Indíquenos volúmenes estimados o requerimientos especiales..."></textarea>
-            </div>
-            
-            <div className="mb-6 bg-muted/50 p-4 rounded text-sm text-center border border-border/50 text-muted-foreground">
-              [Placeholder ReCAPTCHA / hCaptcha Anti-spam]
-            </div>
+          <div className="bg-card p-8 rounded-xl border border-border shadow-sm text-left">
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit((data) => mutation.mutate(data))} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <FormField
+                    control={form.control}
+                    name="company"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Empresa</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Nombre de su empresa" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Email Profesional</FormLabel>
+                        <FormControl>
+                          <Input type="email" placeholder="email@empresa.com" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+                <FormField
+                  control={form.control}
+                  name="area"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>¿En qué área está interesado?</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Seleccione un área..." />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="granel">Granel / B2B</SelectItem>
+                          <SelectItem value="marca-blanca">Marca Blanca</SelectItem>
+                          <SelectItem value="ecologico">Ecológico</SelectItem>
+                          <SelectItem value="semiprocesados">Semiprocesados</SelectItem>
+                          <SelectItem value="otros">Otros</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Mensaje breve</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          placeholder="Indíquenos volúmenes estimados o requerimientos especiales..." 
+                          className="h-24"
+                          {...field} 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <div className="mb-6 bg-muted/50 p-4 rounded text-sm text-center border border-border/50 text-muted-foreground">
+                  [Placeholder ReCAPTCHA / hCaptcha Anti-spam]
+                </div>
 
-            <div className="mb-6 flex items-start gap-3">
-              <input type="checkbox" id="rgpd" className="mt-1" required />
-              <label htmlFor="rgpd" className="text-sm text-muted-foreground">
-                He leído y acepto la Política de Privacidad. Consiento el tratamiento de mis datos para la gestión de esta consulta (RGPD).
-              </label>
-            </div>
-            
-            <Button type="submit" className="w-full" size="lg">Solicitar información comercial</Button>
-          </form>
+                <div className="mb-6 flex items-start gap-3">
+                  <input type="checkbox" id="rgpd" className="mt-1" required />
+                  <label htmlFor="rgpd" className="text-sm text-muted-foreground">
+                    He leído y acepto la Política de Privacidad. Consiento el tratamiento de mis datos para la gestión de esta consulta (RGPD).
+                  </label>
+                </div>
+                
+                <Button type="submit" className="w-full" size="lg" disabled={mutation.isPending}>
+                  {mutation.isPending ? "Enviando..." : "Solicitar información comercial"}
+                </Button>
+              </form>
+            </Form>
+          </div>
         </div>
       </section>
     </div>
