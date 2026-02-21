@@ -9,18 +9,18 @@ import MainLayout from "@/components/layout/MainLayout";
 import Home from "@/pages/Home";
 import Hub from "@/pages/Hub";
 import Area from "@/pages/Area";
+import Calidad from "@/pages/Calidad";
+import Sostenibilidad from "@/pages/Sostenibilidad";
 
 function Router() {
   return (
     <MainLayout>
       <Switch>
         <Route path="/" component={Home} />
-        {/* We'll use Area for all 'quienes-somos', 'calidad' etc for now as placeholders if needed, 
-            but strictly the user asked for Area template specifically for the subpages */}
         <Route path="/que-ofrecemos" component={Hub} />
-        
-        {/* Dynamic route for areas */}
         <Route path="/que-ofrecemos/:id" component={Area} />
+        <Route path="/calidad" component={Calidad} />
+        <Route path="/sostenibilidad" component={Sostenibilidad} />
         
         {/* Fallback to 404 */}
         <Route component={NotFound} />
