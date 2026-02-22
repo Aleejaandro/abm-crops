@@ -1,5 +1,14 @@
 // Menú móvil
 document.addEventListener('DOMContentLoaded', function() {
+  const header = document.querySelector('header');
+  const applyHeaderScrollState = () => {
+    if (!header) return;
+    header.classList.toggle('is-scrolled', window.scrollY > 12);
+  };
+
+  applyHeaderScrollState();
+  window.addEventListener('scroll', applyHeaderScrollState, { passive: true });
+
   const menuToggle = document.getElementById('mobile-menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
   
