@@ -1,0 +1,32 @@
+# ABM Crops - Configuración para Hostalia (Apache)
+
+# Página de inicio
+DirectoryIndex index.html
+
+# Codificación UTF-8
+AddDefaultCharset UTF-8
+
+# Tipos MIME básicos (por si el servidor no los define bien)
+<IfModule mod_mime.c>
+  AddType text/html .html
+  AddType text/css .css
+  AddType application/javascript .js
+  AddType image/svg+xml .svg
+</IfModule>
+
+# Cacheo de estáticos (opcional, mejora rendimiento)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+</IfModule>
+
+# Proteger archivos sensibles (no subas aquí datos privados)
+<FilesMatch "^\.">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+</FilesMatch>
