@@ -101,4 +101,10 @@ document.addEventListener('DOMContentLoaded', function() {
       link.classList.add('active');
     }
   });
+
+  // Año dinámico en footer
+  const currentYearEl = document.getElementById('current-year');
+  if (currentYearEl) {
+    currentYearEl.textContent = String(new Date().getFullYear());
+  }
 });
