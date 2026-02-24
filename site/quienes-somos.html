@@ -44,14 +44,11 @@
 
   <main>
     <!-- Hero -->
-    <section class="hero">
-      <div class="hero-bg">
-        <div class="hero-overlay"></div>
-      </div>
+    <section class="hero" style="min-height: 200px; padding: 3rem 0; background-color: hsl(150, 10%, 15%);">
       <div class="hero-content">
-        <div style="max-width: 48rem; text-align: center;">
-          <h1>Nuestra Historia y Valores</h1>
-          <p>Más de 40 años de experiencia transformando el sector agrícola con innovación y compromiso B2B.</p>
+        <div style="max-width: 48rem; text-align: center; margin: 0 auto;">
+          <h1 style="color: hsl(40, 33%, 98%); margin-bottom: 0.75rem; white-space: nowrap;">Nuestra Historia y Valores</h1>
+          <p style="color: hsl(40, 33%, 98%, 0.8); font-size: 1rem;">Más de 40 años de experiencia transformando el sector agrícola con innovación y compromiso B2B.</p>
         </div>
       </div>
     </section>
@@ -61,7 +58,7 @@
       <div class="container">
         <div class="grid grid-2" style="align-items: center; gap: 4rem;">
           <div>
-            <h2 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--primary); border-bottom: 1px solid var(--border); padding-bottom: 1rem;">Tradición en Evolución</h2>
+            <h2 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 1.5rem; color: #1f5d43; border-bottom: 1px solid var(--border); padding-bottom: 1rem;">Tradición en Evolución</h2>
             <p style="color: var(--text-muted); font-size: 1.125rem; line-height: 1.75; margin-bottom: 1.5rem;">
               ABM Crops nació como una empresa familiar dedicada a la selección de las mejores legumbres y arroces. Con el paso de las décadas, nos hemos convertido en un holding internacional que suministra materias primas críticas a las principales industrias alimentarias del mundo.
             </p>
@@ -70,56 +67,50 @@
             </p>
           </div>
           <div style="background-color: var(--muted); border-radius: 1rem; padding: 0.25rem; position: relative; overflow: hidden; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);">
-            <div style="border-radius: 0.75rem; width: 100%; height: 100%; min-height: 300px; background-color: var(--muted);"></div>
+            <div style="border-radius: 0.75rem; width: 100%; height: 100%; min-height: 300px; background-image: url('assets/images/hero-bg.jpg'); background-size: cover; background-position: center; filter: grayscale(100%);"></div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Misión, Visión, Valores -->
-    <section class="section bg-muted-30 border-y">
-      <div class="container">
-        <div class="grid grid-3">
+    <section id="pilares" class="section border-y" style="background-color: rgba(31, 93, 67, 0.08);">
+      <div class="container about-pillars-container">
+        <div class="grid grid-3 about-pillars-grid">
           <div class="card">
-            <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--primary); margin-bottom: 1.5rem;">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-            </svg>
+            <img src="assets/icons/chart-bar.svg" alt="" class="about-card-icon" aria-hidden="true">
             <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">Misión</h3>
             <p style="color: var(--text-muted);">Proveer soluciones integrales en materias primas agrícolas garantizando la máxima seguridad alimentaria y eficiencia logística.</p>
           </div>
           <div class="card">
-            <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--primary); margin-bottom: 1.5rem;">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-            </svg>
+            <img src="assets/icons/users.svg" alt="" class="about-card-icon" aria-hidden="true">
             <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">Visión</h3>
             <p style="color: var(--text-muted);">Ser el socio estratégico preferente de la industria alimentaria global, liderando la transición hacia suministros más sostenibles.</p>
           </div>
           <div class="card">
-            <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--primary); margin-bottom: 1.5rem;">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-            </svg>
+            <img src="assets/icons/medal.svg" alt="" class="about-card-icon" aria-hidden="true">
             <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">Valores</h3>
             <ul style="color: var(--text-muted); list-style: none; padding: 0;">
               <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
-                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--primary);">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--text-muted);">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
                 Transparencia radical
               </li>
               <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
-                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--primary);">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--text-muted);">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
                 Calidad sin compromisos
               </li>
               <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
-                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--primary);">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--text-muted);">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
                 Innovación en procesos
               </li>
               <li style="display: flex; align-items: center; gap: 0.5rem;">
-                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--primary);">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--text-muted);">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
                 Respeto por el origen
@@ -136,32 +127,32 @@
         <h2 class="section-title">Nuestro Recorrido</h2>
         <div style="margin-top: 3rem;">
           <div style="display: flex; gap: 1.5rem; align-items: start; margin-bottom: 2rem;">
-            <span style="font-weight: 900; font-size: 1.5rem; color: var(--primary); flex-shrink: 0; width: 80px;">1984</span>
-            <div style="padding-top: 0.25rem; border-left: 2px solid rgba(37, 99, 235, 0.2); padding-left: 1.5rem; padding-bottom: 1rem;">
+            <span style="font-weight: 900; font-size: 1.5rem; color: #1f5d43; flex-shrink: 0; width: 80px;">1984</span>
+            <div style="padding-top: 0.25rem; border-left: 2px solid rgba(31, 93, 67, 0.28); padding-left: 1.5rem; padding-bottom: 1rem;">
               <p style="font-size: 1.125rem; color: rgba(15, 23, 42, 0.8);">Fundación de la empresa familiar de legumbres.</p>
             </div>
           </div>
           <div style="display: flex; gap: 1.5rem; align-items: start; margin-bottom: 2rem;">
-            <span style="font-weight: 900; font-size: 1.5rem; color: var(--primary); flex-shrink: 0; width: 80px;">1998</span>
-            <div style="padding-top: 0.25rem; border-left: 2px solid rgba(37, 99, 235, 0.2); padding-left: 1.5rem; padding-bottom: 1rem;">
+            <span style="font-weight: 900; font-size: 1.5rem; color: #1f5d43; flex-shrink: 0; width: 80px;">1998</span>
+            <div style="padding-top: 0.25rem; border-left: 2px solid rgba(31, 93, 67, 0.28); padding-left: 1.5rem; padding-bottom: 1rem;">
               <p style="font-size: 1.125rem; color: rgba(15, 23, 42, 0.8);">Apertura de la primera línea de envasado industrial.</p>
             </div>
           </div>
           <div style="display: flex; gap: 1.5rem; align-items: start; margin-bottom: 2rem;">
-            <span style="font-weight: 900; font-size: 1.5rem; color: var(--primary); flex-shrink: 0; width: 80px;">2010</span>
-            <div style="padding-top: 0.25rem; border-left: 2px solid rgba(37, 99, 235, 0.2); padding-left: 1.5rem; padding-bottom: 1rem;">
+            <span style="font-weight: 900; font-size: 1.5rem; color: #1f5d43; flex-shrink: 0; width: 80px;">2010</span>
+            <div style="padding-top: 0.25rem; border-left: 2px solid rgba(31, 93, 67, 0.28); padding-left: 1.5rem; padding-bottom: 1rem;">
               <p style="font-size: 1.125rem; color: rgba(15, 23, 42, 0.8);">Expansión internacional y creación del holding ABM Crops.</p>
             </div>
           </div>
           <div style="display: flex; gap: 1.5rem; align-items: start; margin-bottom: 2rem;">
-            <span style="font-weight: 900; font-size: 1.5rem; color: var(--primary); flex-shrink: 0; width: 80px;">2018</span>
-            <div style="padding-top: 0.25rem; border-left: 2px solid rgba(37, 99, 235, 0.2); padding-left: 1.5rem; padding-bottom: 1rem;">
+            <span style="font-weight: 900; font-size: 1.5rem; color: #1f5d43; flex-shrink: 0; width: 80px;">2018</span>
+            <div style="padding-top: 0.25rem; border-left: 2px solid rgba(31, 93, 67, 0.28); padding-left: 1.5rem; padding-bottom: 1rem;">
               <p style="font-size: 1.125rem; color: rgba(15, 23, 42, 0.8);">Lanzamiento de la división de productos Ecológicos y Sin Gluten.</p>
             </div>
           </div>
           <div style="display: flex; gap: 1.5rem; align-items: start;">
-            <span style="font-weight: 900; font-size: 1.5rem; color: var(--primary); flex-shrink: 0; width: 80px;">2024</span>
-            <div style="padding-top: 0.25rem; border-left: 2px solid rgba(37, 99, 235, 0.2); padding-left: 1.5rem; padding-bottom: 1rem;">
+            <span style="font-weight: 900; font-size: 1.5rem; color: #1f5d43; flex-shrink: 0; width: 80px;">2024</span>
+            <div style="padding-top: 0.25rem; border-left: 2px solid rgba(31, 93, 67, 0.28); padding-left: 1.5rem; padding-bottom: 1rem;">
               <p style="font-size: 1.125rem; color: rgba(15, 23, 42, 0.8);">Líderes en exportación B2B a más de 25 mercados.</p>
             </div>
           </div>
