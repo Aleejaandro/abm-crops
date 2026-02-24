@@ -17,7 +17,7 @@
       <nav class="desktop-nav">
         <a href="/">Inicio</a>
         <a href="../quienes-somos.html">Quiénes somos</a>
-        <a href="index.html">Qué ofrecemos</a>
+        <a href="index2.html">Qué ofrecemos</a>
         <a href="../calidad.html">Calidad</a>
         <a href="../sostenibilidad.html">Sostenibilidad</a>
         <a href="../contacto.html">Contacto</a>
@@ -34,7 +34,7 @@
       <nav>
         <a href="/">Inicio</a>
         <a href="../quienes-somos.html">Quiénes somos</a>
-        <a href="index.html">Qué ofrecemos</a>
+        <a href="index2.html">Qué ofrecemos</a>
         <a href="../calidad.html">Calidad</a>
         <a href="../sostenibilidad.html">Sostenibilidad</a>
         <a href="../contacto.html">Contacto</a>
@@ -43,9 +43,9 @@
   </header>
 
   <main>
-    <div class="breadcrumb">
+    <div class="breadcrumb breadcrumb-soft-green">
       <div class="container">
-        <a href="index.html" style="display: flex; align-items: center; gap: 0.5rem;">
+        <a href="index2.html" style="display: flex; align-items: center; gap: 0.5rem;">
           <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
           </svg>
@@ -54,15 +54,15 @@
       </div>
     </div>
 
-    <section class="hero">
+    <section class="hero hero-secondary">
       <div class="hero-bg">
         <div class="hero-overlay"></div>
       </div>
       <div class="hero-content">
         <div style="max-width: 48rem; text-align: center;">
           <h1>Granel / B2B</h1>
-          <p>Solución integral diseñada específicamente para optimizar este segmento de su cadena de valor.</p>
-          <a href="#form-area" class="btn btn-primary btn-lg" style="margin-top: 2rem;">Solicitar presupuesto comercial</a>
+          <p style="color: hsl(40, 33%, 98%, 0.8); font-size: 1rem;">Solución integral diseñada específicamente para optimizar este segmento de su cadena de valor.</p>
+          <a href="#form-area" class="btn btn-lg offer-help-cta" style="margin-top: 2rem;">Solicitar presupuesto comercial</a>
         </div>
       </div>
     </section>
@@ -71,13 +71,13 @@
       <div class="container">
         <div class="grid grid-2" style="gap: 4rem;">
           <div>
-            <h2 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--primary); border-bottom: 1px solid var(--border); padding-bottom: 1rem;">¿Para quién es?</h2>
+            <h2 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 1.5rem; color: #1f5d43; border-bottom: 1px solid var(--border); padding-bottom: 1rem;">¿Para quién es?</h2>
             <p style="color: var(--text-muted); font-size: 1.125rem; line-height: 1.75;">
               Esta área está concebida para fábricas de procesamiento, cadenas de distribución modernas, canal HORECA especializado y empresas que requieren materia prima altamente estandarizada y segura. Adaptamos nuestros lotes a las necesidades de su línea de producción.
             </p>
           </div>
           <div>
-            <h2 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--secondary); border-bottom: 1px solid var(--border); padding-bottom: 1rem;">¿Qué ofrecemos exactamente?</h2>
+            <h2 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 1.5rem; color: #b67d2e; border-bottom: 1px solid var(--border); padding-bottom: 1rem;">¿Qué ofrecemos exactamente?</h2>
             <p style="color: var(--text-muted); font-size: 1.125rem; line-height: 1.75;">
               Un servicio B2B que va más allá de la materia prima. Incluye gestión logística, calidad certificada documentalmente por lote, opciones de envasado industrial y consultoría técnica de integración de ingredientes.
             </p>
@@ -86,7 +86,7 @@
       </div>
     </section>
 
-    <section class="section bg-muted-30">
+    <section class="section bg-muted-30 offer-section-soft">
       <div class="container">
         <h2 class="section-title">Formatos y Capacidades</h2>
         <div class="grid grid-3">
@@ -135,40 +135,40 @@
       </div>
     </section>
 
-    <section id="form-area" class="section kpi-section">
-      <div class="container max-w-3xl">
+    <section id="form-area" class="section bg-muted-30 border-t">
+      <div class="container max-w-2xl">
         <div style="text-align: center; margin-bottom: 2.5rem;">
           <h2 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 1rem;">Solicitar información de Granel / B2B</h2>
-          <p style="color: rgba(255, 255, 255, 0.7);">Un gestor especializado se pondrá en contacto con usted en menos de 24 horas laborables.</p>
+          <p style="color: var(--text-muted);">Un gestor especializado se pondrá en contacto con usted en menos de 24 horas laborables.</p>
         </div>
         
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="background-color: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="form-container">
           <div class="form-grid">
             <div class="form-group">
-              <label for="name-granel" class="form-label" style="opacity: 0.8; color: white;">Nombre</label>
-              <input type="text" id="name-granel" name="name" class="form-input" style="background-color: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); color: white;" required>
+              <label for="name-granel" class="form-label">Nombre</label>
+              <input type="text" id="name-granel" name="name" class="form-input" placeholder="Nombre y apellidos" required>
             </div>
             <div class="form-group">
-              <label for="company-granel" class="form-label" style="opacity: 0.8; color: white;">Empresa / CIF</label>
-              <input type="text" id="company-granel" name="company" class="form-input" style="background-color: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); color: white;" required>
+              <label for="company-granel" class="form-label">Empresa / CIF</label>
+              <input type="text" id="company-granel" name="company" class="form-input" placeholder="Nombre de empresa o CIF" required>
             </div>
           </div>
           
           <div class="form-group">
-            <label for="details-granel" class="form-label" style="opacity: 0.8; color: white;">Volumen estimado / Detalles técnicos</label>
-            <textarea id="details-granel" name="message" class="form-textarea" style="background-color: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); color: white;" required></textarea>
+            <label for="details-granel" class="form-label">Volumen estimado / Detalles técnicos</label>
+            <textarea id="details-granel" name="message" class="form-textarea" placeholder="Describa su necesidad, volúmenes y requisitos..." required></textarea>
           </div>
           
-          <div class="recaptcha-placeholder" style="background-color: rgba(0, 0, 0, 0.3); border-color: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.5);">
+          <div class="recaptcha-placeholder">
             [Placeholder ReCAPTCHA / hCaptcha Anti-spam]
           </div>
 
-          <div class="form-checkbox" style="color: rgba(255, 255, 255, 0.7);">
+          <div class="form-checkbox">
             <input type="checkbox" id="rgpd-granel" name="rgpd" required>
-            <label for="rgpd-granel" style="color: rgba(255, 255, 255, 0.7);">Acepto la Política de Privacidad y el tratamiento de mis datos con fines comerciales (RGPD).</label>
+            <label for="rgpd-granel">Acepto la Política de Privacidad y el tratamiento de mis datos con fines comerciales (RGPD).</label>
           </div>
           
-          <button type="submit" class="btn btn-primary form-submit btn-lg" style="width: 100%;">Enviar solicitud</button>
+          <button type="submit" class="btn btn-primary form-submit offer-form-submit">Enviar solicitud</button>
         </form>
       </div>
     </section>
@@ -191,7 +191,7 @@
           <ul>
             <li><a href="/">Inicio</a></li>
             <li><a href="../quienes-somos.html">Quiénes somos</a></li>
-            <li><a href="index.html">Qué ofrecemos</a></li>
+            <li><a href="index2.html">Qué ofrecemos</a></li>
             <li><a href="../contacto.html">Contacto</a></li>
           </ul>
         </div>

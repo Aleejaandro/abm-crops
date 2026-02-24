@@ -320,6 +320,33 @@ main {
   background-color: rgba(16, 24, 20, 0.68);
 }
 
+/* Hero secundario para páginas internas */
+.hero-secondary {
+  min-height: 200px;
+  padding: 3rem 0;
+  background-color: hsl(150, 10%, 15%);
+}
+
+.hero-secondary .hero-bg {
+  display: none;
+}
+
+.hero-secondary .hero-content > div {
+  max-width: 48rem;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.hero-secondary h1 {
+  color: hsl(40, 33%, 98%);
+  margin-bottom: 0.75rem;
+}
+
+.hero-secondary p {
+  color: hsl(40, 33%, 98%, 0.8);
+  font-size: 1rem;
+}
+
 /* Hero específico: Quiénes somos */
 .hero-quienes {
   min-height: 200px;
@@ -352,6 +379,91 @@ main {
   color: hsl(40, 33%, 98%, 0.8);
   font-size: 1rem;
   margin-bottom: 0;
+}
+
+/* Qué ofrecemos (cards): iconos y CTAs en verde corporativo */
+#areas-hub .card li svg {
+  color: var(--text-muted) !important;
+}
+
+#areas-hub .container {
+  max-width: 1520px;
+}
+
+#areas-hub .grid {
+  gap: 1.25rem;
+}
+
+#areas-hub .card {
+  border: 1px solid rgba(31, 93, 67, 0.28);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#areas-hub .card .btn-primary {
+  background-color: #1f5d43 !important;
+  border: 1px solid #1f5d43 !important;
+  color: #ffffff !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#areas-hub .card .btn-primary:hover {
+  background-color: #184a35 !important;
+  border-color: #184a35 !important;
+}
+
+#areas-hub .card .btn-outline {
+  background-color: transparent !important;
+  border-color: #1f5d43 !important;
+  color: #1f5d43 !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#areas-hub .card .btn-outline:hover {
+  background-color: rgba(31, 93, 67, 0.08) !important;
+}
+
+.offer-help-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  min-height: 2.75rem;
+  padding: 0 1.5rem;
+  border-radius: 0.5rem;
+  background-color: #1f5d43;
+  border: 1px solid #1f5d43;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.offer-help-cta:hover {
+  background-color: #184a35;
+  border-color: #184a35;
+}
+
+#offer-form .offer-form-submit,
+#form-area .offer-form-submit {
+  min-height: 2.9rem;
+  background-color: #1f5d43 !important;
+  border: 1px solid #1f5d43 !important;
+  color: #ffffff !important;
+}
+
+#offer-form .offer-form-submit:hover,
+#form-area .offer-form-submit:hover {
+  background-color: #184a35 !important;
+  border-color: #184a35 !important;
 }
 
 /* Quiénes somos: cards misión/visión/valores */
@@ -1244,12 +1356,19 @@ section {
 }
 
 /* Contacto final: estilo de captación B2B */
-#contacto.section {
+#contacto.section,
+#offer-form.section,
+#form-area.section {
   background-color: rgba(226, 235, 229, 0.62);
+}
+
+#contacto.section {
   border-top: 1px solid rgba(190, 203, 196, 0.72);
 }
 
-#contacto .form-container {
+#contacto .form-container,
+#offer-form .form-container,
+#form-area .form-container {
   border-radius: 0.75rem; /* 12px */
   border: 1px solid rgba(31, 93, 67, 0.24);
   box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
@@ -1447,6 +1566,20 @@ footer {
   color: white;
 }
 
+.breadcrumb-soft-green {
+  background-color: rgba(31, 93, 67, 0.1);
+  color: #4f635a;
+  border-bottom: 1px solid rgba(31, 93, 67, 0.22);
+}
+
+.breadcrumb-soft-green a {
+  color: #4f635a;
+}
+
+.breadcrumb-soft-green a:hover {
+  color: #1f5d43;
+}
+
 /* Tabs/Anclas */
 .tabs {
   display: flex;
@@ -1567,6 +1700,13 @@ html {
 
 .bg-muted-30 {
   background-color: rgba(241, 245, 249, 0.3);
+}
+
+/* Secciones informativas de detalle (qué-ofrecemos hijas) */
+.offer-section-soft {
+  background-color: rgba(31, 93, 67, 0.08);
+  border-top: 1px solid rgba(190, 203, 196, 0.72);
+  border-bottom: 1px solid rgba(190, 203, 196, 0.72);
 }
 
 .border-y {

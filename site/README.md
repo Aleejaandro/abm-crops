@@ -70,7 +70,7 @@ El sitio está preparado para subirse al hosting de **Hostalia** (Apache, PHP op
 - Sube **el contenido** de la carpeta `site/`, no la carpeta `site` en sí:
   - Que en la raíz de `public_html` queden: `index.html`, `quienes-somos.html`, `calidad.html`, `.htaccess`, etc.
   - La carpeta `assets/` con `styles.css` y `main.js`.
-  - La carpeta `que-ofrecemos/` con su `index.html` y el resto de páginas.
+  - La carpeta `que-ofrecemos/` con su `index2.html` y el resto de páginas.
 - Incluye el archivo **`.htaccess`** (está en `site/`): define la página de inicio, UTF-8 y opciones de caché para Apache.
 
 ### 2. Cómo subir (FTP / administrador de archivos)
