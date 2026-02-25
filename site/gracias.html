@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mensaje recibido - ABM Crops">
+  <meta name="robots" content="noindex">
+  <title>Mensaje enviado - ABM Crops</title>
+  <link rel="icon" href="assets/logos/abmCrops.png" type="image/png">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <a href="/" class="logo">
+        <img src="assets/logos/abmCrops.png" alt="ABM Crops" class="logo-img">
+      </a>
+      <nav class="desktop-nav">
+        <a href="/">Inicio</a>
+        <a href="quienes-somos.html">Quiénes somos</a>
+        <a href="que-ofrecemos/index2.html">Qué ofrecemos</a>
+        <a href="calidad.html">Calidad</a>
+        <a href="sostenibilidad.html">Sostenibilidad</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <nav>
+        <a href="/">Inicio</a>
+        <a href="quienes-somos.html">Quiénes somos</a>
+        <a href="que-ofrecemos/index2.html">Qué ofrecemos</a>
+        <a href="calidad.html">Calidad</a>
+        <a href="sostenibilidad.html">Sostenibilidad</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" style="padding: 4rem 0; min-height: 50vh; display: flex; align-items: center;">
+      <div class="container max-w-xl text-center">
+        <div style="margin-bottom: 1.5rem;">
+          <svg width="64" height="64" fill="none" stroke="#447854" stroke-width="2" viewBox="0 0 24 24" style="margin: 0 auto;">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h1 class="section-title" style="margin-bottom: 1rem;">Mensaje enviado</h1>
+        <p class="section-subtitle" style="margin-bottom: 2rem;">
+          Hemos recibido su consulta. Nuestro equipo se pondrá en contacto con usted en menos de 24 horas laborables.
+        </p>
+        <p id="redirect-msg" style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1.5rem;">Redirigiendo al inicio en <span id="countdown">5</span> segundos...</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+          <a href="/" class="btn btn-primary">Volver al inicio</a>
+          <a href="contacto.html" class="btn btn-outline" style="border-color: var(--border); color: var(--text-foreground);">Otra consulta</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">
+            <img src="assets/logos/abmCrops.png" alt="ABM Crops" class="footer-logo-img">
+          </div>
+          <p style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.6); margin-bottom: 1rem;">
+            Soluciones integrales B2B en materias primas para la industria alimentaria a nivel global.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h4>Secciones</h4>
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="quienes-somos.html">Quiénes somos</a></li>
+            <li><a href="que-ofrecemos/index2.html">Qué ofrecemos</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Áreas</h4>
+          <ul>
+            <li><a href="que-ofrecemos/granel-b2b.html">Granel / B2B</a></li>
+            <li><a href="que-ofrecemos/marca-blanca.html">Marca blanca</a></li>
+            <li><a href="que-ofrecemos/ecologico.html">Ecológico</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Aviso Legal</a></li>
+            <li><a href="#">Política de Privacidad (RGPD)</a></li>
+            <li><a href="#">Política de Cookies</a></li>
+            <li><a href="#">Condiciones Generales</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="current-year">2026</span> ABM Crops. Todos los derechos reservados.</p>
+        <p style="margin-top: 0.5rem;">Desarrollo B2B Web</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/main.js"></script>
+  <script>
+    (function() {
+      var countdown = 5;
+      var el = document.getElementById('countdown');
+      var interval = setInterval(function() {
+        countdown--;
+        if (el) el.textContent = countdown;
+      }, 1000);
+      setTimeout(function() {
+        clearInterval(interval);
+        window.location.href = '/';
+      }, 5000);
+    })();
+  </script>
+</body>
+</html>

@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Qué ofrecemos - Áreas de especialización de ABM Crops">
   <title>Qué ofrecemos - ABM Crops</title>
+  <link rel="icon" href="../assets/logos/abmCrops.png" type="image/png">
   <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
   <header>
     <div class="header-container">
-      <a href="/" class="logo">
-        <span class="logo-box">ABM</span>
-        Crops
+      <a href="../index.html" class="logo">
+        <img src="../assets/logos/abmCrops.png" alt="ABM Crops" class="logo-img">
       </a>
       <nav class="desktop-nav">
         <a href="/">Inicio</a>
@@ -271,7 +271,7 @@
     <section id="offer-form" class="section bg-muted-30 border-t">
       <div class="container max-w-2xl">
         <h2 class="section-title">Cuéntenos su necesidad</h2>
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="form-container">
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="form-container" novalidate>
           <div class="form-group">
             <label for="area-hub" class="form-label">Área de interés principal</label>
             <select id="area-hub" name="area" class="form-select" required>
@@ -308,8 +308,7 @@
       <div class="footer-grid">
         <div>
           <div class="footer-logo">
-            <span class="footer-logo-box">ABM</span>
-            Crops
+            <img src="../assets/logos/abmCrops.png" alt="ABM Crops" class="footer-logo-img">
           </div>
           <p style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.6); margin-bottom: 1rem;">
             Soluciones integrales B2B en materias primas para la industria alimentaria a nivel global.
@@ -349,6 +348,7 @@
     </div>
   </footer>
 
+  <div id="toast-container" class="toast-container"></div>
   <script src="../assets/main.js"></script>
 </body>
 </html>

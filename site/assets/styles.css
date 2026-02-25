@@ -75,6 +75,14 @@ header.is-scrolled {
   font-size: 0.875rem;
 }
 
+.logo-img {
+  height: 68px;
+  width: auto;
+  max-height: 72px;
+  object-fit: contain;
+  display: block;
+}
+
 nav.desktop-nav {
   display: none;
   gap: 2rem;
@@ -320,7 +328,7 @@ main {
   background-color: rgba(16, 24, 20, 0.68);
 }
 
-/* Hero secundario para páginas internas */
+/* Hero secundario para páginas internas (misma altura/estructura que contacto.html) */
 .hero-secondary {
   min-height: 200px;
   padding: 3rem 0;
@@ -332,7 +340,7 @@ main {
 }
 
 .hero-secondary .hero-content > div {
-  max-width: 48rem;
+  max-width: 56rem;
   text-align: center;
   margin: 0 auto;
 }
@@ -347,10 +355,218 @@ main {
   font-size: 1rem;
 }
 
-/* Hero específico: Quiénes somos */
-.hero-quienes {
-  min-height: 200px;
+/* Hero Sostenibilidad: imagen de fondo + filtro verde ligero */
+.hero-sostenibilidad {
+  min-height: clamp(280px, 42vh, 380px);
   padding: 3rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-sostenibilidad-bg {
+  background-image: url("images/sostenibilidad.jpg");
+  background-size: cover;
+  background-position: center center;
+  opacity: 1;
+}
+
+.hero-sostenibilidad-overlay {
+  background-color: rgba(15, 55, 38, 0.48);
+}
+
+.hero-sostenibilidad .hero-content {
+  width: 100%;
+}
+
+.hero-sostenibilidad-inner {
+  max-width: 34rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-sostenibilidad-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.5rem;
+  display: block;
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+
+.hero-sostenibilidad h1 {
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  line-height: 1.15;
+}
+
+.hero-sostenibilidad p {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Sostenibilidad: pilares (Huella de Carbono, Gestión Hídrica, Packaging Eco) */
+#sost-pilares .container {
+  max-width: 90%;
+}
+
+@media (min-width: 1280px) {
+  #sost-pilares .container {
+    max-width: 1440px;
+  }
+}
+
+#sost-pilares .sost-pilares-grid {
+  gap: 2.5rem 3rem;
+}
+
+@media (min-width: 1024px) {
+  #sost-pilares .sost-pilares-grid {
+    grid-template-columns: repeat(3, minmax(320px, 1fr));
+    gap: 3rem 4rem;
+  }
+}
+
+#sost-pilares .sost-pilar {
+  text-align: center;
+}
+
+#sost-pilares .sost-pilar-icon-wrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: rgba(31, 93, 67, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+#sost-pilares .sost-pilar-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+#sost-pilares .sost-pilar-title {
+  font-size: 1.375rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1f5d43;
+}
+
+#sost-pilares .sost-pilar-desc {
+  font-size: 1.125rem;
+  color: #4f635a;
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* Sostenibilidad: Agricultura Consciente (fondo verde y borde como Certificaciones) */
+#agricultura-consciente.section-sost-agricultura {
+  background-color: rgba(31, 93, 67, 0.08);
+  border-top: 1px solid rgba(190, 203, 196, 0.72);
+  border-bottom: 1px solid rgba(190, 203, 196, 0.72);
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  #agricultura-consciente.section-sost-agricultura {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+}
+
+#agricultura-consciente .container {
+  max-width: 90%;
+}
+
+@media (min-width: 1280px) {
+  #agricultura-consciente .container {
+    max-width: 1440px;
+  }
+}
+
+#agricultura-consciente .agricultura-grid {
+  align-items: center;
+  gap: 3rem;
+}
+
+@media (min-width: 1024px) {
+  #agricultura-consciente .agricultura-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 3rem 4rem;
+  }
+}
+
+#agricultura-consciente .agricultura-visual-wrap {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+}
+
+#agricultura-consciente .agricultura-visual {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: var(--muted);
+  background-image: url("images/sostenibilidad.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#agricultura-consciente .agricultura-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text-foreground);
+}
+
+#agricultura-consciente .agricultura-desc {
+  color: #4f635a;
+  font-size: 1.1875rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.65;
+}
+
+#agricultura-consciente .agricultura-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#agricultura-consciente .agricultura-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 500;
+  color: #4f635a;
+}
+
+#agricultura-consciente .agricultura-list-icon {
+  flex-shrink: 0;
+  color: #1f5d43;
+}
+
+/* Sostenibilidad: Memoria de Sostenibilidad (última sección) */
+#memoria-sostenibilidad .memoria-subtitle {
+  color: #4f635a;
+  margin-bottom: 2rem;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+/* Hero específico: Quiénes somos (misma altura/estructura que contacto.html) */
+.hero.hero-quienes {
+  min-height: 200px !important;
+  padding: 3rem 0 !important;
   background-color: hsl(150, 10%, 15%);
 }
 
@@ -365,6 +581,12 @@ main {
 
 .hero-quienes .hero-quienes-inner {
   max-width: 88rem;
+  margin: 0 auto;
+}
+
+.hero-quienes .hero-quienes-intro {
+  max-width: 56rem;
+  text-align: center;
   margin: 0 auto;
 }
 
@@ -653,11 +875,232 @@ section {
   }
 }
 
+/* Formatos y Capacidades + Ventajas Competitivas: menos espacio arriba del título, más abajo */
+.offer-section-soft.section,
+.offer-section-soft + .section {
+  padding-top: 2.5rem;
+}
+
+.offer-section-soft .section-title,
+.offer-section-soft + .section .section-title {
+  margin-bottom: 2.25rem;
+}
+
+@media (min-width: 768px) {
+  .offer-section-soft.section,
+  .offer-section-soft + .section {
+    padding-top: 3.5rem;
+  }
+
+  .offer-section-soft .section-title,
+  .offer-section-soft + .section .section-title {
+    margin-bottom: 2.75rem;
+  }
+}
+
 .section-subtitle {
   color: var(--text-muted);
   text-align: center;
   max-width: 42rem;
   margin: 0 auto 4rem;
+}
+
+/* Calidad: Nuestro Protocolo de Control */
+#protocolo .protocol-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  #protocolo .protocol-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+#protocolo .protocol-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--text-foreground);
+  margin-bottom: 1.75rem;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  #protocolo .protocol-title {
+    font-size: 2.25rem;
+  }
+}
+
+#protocolo .protocol-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+#protocolo .protocol-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+#protocolo .protocol-item-icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+#protocolo .protocol-item-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1f5d43;
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+
+#protocolo .protocol-item-desc {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+#protocolo .protocol-visual {
+  background-color: var(--muted);
+  border-radius: 1rem;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  position: relative;
+}
+
+#protocolo .protocol-visual-inner {
+  width: 100%;
+  height: 100%;
+  background-color: var(--muted);
+  background-image: url("images/calidad.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Calidad: sección Certificaciones */
+#certificaciones.section-certificaciones {
+  padding-top: 2.5rem;
+  padding-bottom: 4rem;
+  background-color: rgba(31, 93, 67, 0.08);
+  border-top: 1px solid rgba(190, 203, 196, 0.72);
+  border-bottom: 1px solid rgba(190, 203, 196, 0.72);
+}
+
+#certificaciones .section-certificaciones-title {
+  margin-top: 0;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  #certificaciones.section-certificaciones {
+    padding-top: 3rem;
+  }
+
+  #certificaciones .section-certificaciones-title {
+    margin-bottom: 3rem;
+  }
+}
+
+#certificaciones .cert-cards {
+  gap: 1.5rem;
+}
+
+#certificaciones .cert-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1.25rem;
+}
+
+#certificaciones .cert-card-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+  object-fit: contain;
+}
+
+#certificaciones .cert-card-name {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--text-foreground);
+}
+
+#certificaciones .cert-card-note {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Calidad: sección Documentación Técnica */
+#documentacion-tecnica.section-documentacion {
+  padding-top: 2.5rem;
+  padding-bottom: 5rem;
+}
+
+#documentacion-tecnica .section-documentacion-title {
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  #documentacion-tecnica.section-documentacion {
+    padding-top: 3rem;
+    padding-bottom: 6rem;
+  }
+
+  #documentacion-tecnica .section-documentacion-title {
+    margin-bottom: 2.5rem;
+  }
+}
+
+#documentacion-tecnica .section-documentacion-desc {
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+  font-size: 1.125rem;
+}
+
+#documentacion-tecnica .section-documentacion-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+#documentacion-tecnica .section-documentacion-btns .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Botón verde (Ver Ficha Técnica) como en el resto del sitio */
+#documentacion-tecnica .btn-verde,
+.btn-verde.btn-primary {
+  background-color: #1f5d43;
+  border: 1px solid rgba(153, 201, 176, 0.35);
+  color: #ffffff;
+}
+
+#documentacion-tecnica .btn-verde:hover,
+.btn-verde.btn-primary:hover {
+  background-color: #184a35;
+}
+
+#documentacion-tecnica .section-documentacion-btn-outline {
+  border-color: var(--border);
+  color: var(--text-foreground);
 }
 
 /* Ajuste fino del bloque "Nuestras Áreas" en home */
@@ -871,6 +1314,7 @@ section {
   border-radius: 2rem;
   border: 1px solid rgba(31, 93, 67, 0.2);
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+  overflow: visible;
 }
 
 @media (min-width: 1024px) {
@@ -904,9 +1348,26 @@ section {
   object-fit: contain;
 }
 
+/* Logo Productos Don José */
 .brand-logo-image-donjose {
   width: 128px;
   height: 128px;
+  min-width: 128px;
+  min-height: 128px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+/* Logo DMondo: tamaño mayor para igualar presencia visual (el PNG tiene más margen que Don José) */
+/* Logo DMondo: misma caja que Don José + scale para que el logo se vea más grande */
+.brand-logo-image-dmondo {
+  width: 128px;
+  height: 128px;
+  min-width: 128px;
+  min-height: 128px;
+  flex-shrink: 0;
+  object-fit: contain;
+  transform: scale(1.8);
 }
 
 .brand-logo-donjose {
@@ -1364,6 +1825,35 @@ section {
 
 #contacto.section {
   border-top: 1px solid rgba(190, 203, 196, 0.72);
+  background-color: #FDFBF8;
+  padding-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  #contacto.section {
+    padding-bottom: 2.5rem;
+  }
+}
+
+#contacto .container-contacto {
+  max-width: 90%;
+}
+
+@media (min-width: 1280px) {
+  #contacto .container-contacto {
+    max-width: 1440px;
+  }
+}
+
+#contacto .contact-page-grid {
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  #contacto .contact-page-grid {
+    gap: 3rem;
+  }
 }
 
 #contacto .form-container,
@@ -1373,16 +1863,50 @@ section {
   border: 1px solid rgba(31, 93, 67, 0.24);
   box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
   margin-top: 0.5rem;
-  padding: 1.5rem;
+  padding: 1.25rem 1.5rem 0.75rem;
+}
+
+@media (min-width: 768px) {
+  #contacto .form-container,
+  #offer-form .form-container,
+  #form-area .form-container {
+    padding: 1.5rem 2rem 1rem;
+  }
+}
+
+#contacto .contact-form-title {
+  font-size: 1.375rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: var(--text-foreground);
 }
 
 #contacto .form-grid {
-  gap: 1.5rem;
-  margin-bottom: 0.35rem;
+  gap: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Subpáginas de Qué ofrecemos: espacio entre fila Nombre/Empresa y Volumen estimado */
+#form-area .form-grid {
+  margin-bottom: 1.75rem !important;
+}
+
+#form-area .form-grid .form-group {
+  margin-bottom: 0 !important;
+}
+
+#form-area .form-grid + .form-group {
+  margin-top: 0 !important;
+  margin-bottom: 1rem;
+}
+
+/* Qué ofrecemos index2: mismo espaciado compacto entre campos */
+#offer-form .form-group {
+  margin-bottom: 1rem;
 }
 
 #contacto .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 #contacto .form-label {
@@ -1422,8 +1946,24 @@ section {
   width: 100%;
 }
 
+#contacto .form-checkbox {
+  margin-bottom: 0.75rem;
+}
+
+#contacto #contact-form {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
 #contacto .form-submit {
-  min-height: 2.9rem;
+  min-height: 2.75rem;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0;
+  margin-top: 0.25rem;
   background-color: #1f5d43;
   border: 1px solid #1f5d43;
   color: #ffffff;
@@ -1435,7 +1975,82 @@ section {
 }
 
 #contacto .form-textarea {
-  min-height: 6.25rem;
+  min-height: 5.5rem;
+}
+
+/* Mapa de contacto: sección integrada (mismo fondo y ancho que contacto), sin filtros */
+.contact-map-section {
+  width: 100%;
+  padding: 2rem 0 3rem;
+  background-color: #FDFBF8;
+  border-top: 1px solid rgba(190, 203, 196, 0.72);
+}
+
+.contact-map-container {
+  width: 90%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.contact-map-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.contact-map-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-foreground);
+  margin: 0;
+}
+
+.contact-map-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1f5d43;
+  text-decoration: none;
+}
+
+.contact-map-link:hover {
+  text-decoration: underline;
+}
+
+.contact-map-wrap {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid rgba(190, 203, 196, 0.72);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+.contact-map-iframe {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .contact-map-section {
+    padding: 2.5rem 0 3.5rem;
+  }
+  .contact-map-container {
+    padding: 0 1.5rem;
+  }
+  .contact-map-header {
+    margin-bottom: 1.25rem;
+  }
+  .contact-map-title {
+    font-size: 1.375rem;
+  }
 }
 
 #faq.section {
@@ -1496,6 +2111,14 @@ footer {
   align-items: center;
   justify-content: center;
   font-size: 0.75rem;
+}
+
+.footer-logo-img {
+  height: 52px;
+  width: auto;
+  max-height: 56px;
+  object-fit: contain;
+  display: block;
 }
 
 .footer-section h4 {

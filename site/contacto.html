@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Contacto comercial de ABM Crops">
   <title>Contacto - ABM Crops</title>
+  <link rel="icon" href="assets/logos/abmCrops.png" type="image/png">
   <link rel="stylesheet" href="assets/styles.css">
   <style>
     /* Estilos específicos para Contacto */
@@ -66,8 +67,7 @@
   <header>
     <div class="header-container">
       <a href="/" class="logo">
-        <span class="logo-box">ABM</span>
-        Crops
+        <img src="assets/logos/abmCrops.png" alt="ABM Crops" class="logo-img">
       </a>
       <nav class="desktop-nav">
         <a href="/">Inicio</a>
@@ -107,9 +107,9 @@
       </div>
     </section>
 
-    <section class="section" style="background-color: #FDFBF8;">
-      <div class="container" style="max-width: 1280px;">
-        <div class="grid grid-2" style="gap: 4rem;">
+    <section id="contacto" class="section section-contacto">
+      <div class="container container-contacto">
+        <div class="grid grid-2 contact-page-grid">
           <!-- Info de contacto -->
           <div>
             <h2 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 2rem;">Canales Directos</h2>
@@ -171,9 +171,9 @@
           </div>
 
           <!-- Formulario -->
-          <div class="form-container">
-            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem;">Envíenos su consulta</h3>
-            <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form-container contact-form-box">
+            <h3 class="contact-form-title">Envíenos su consulta</h3>
+            <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
               <div class="form-grid">
                 <div class="form-group">
                   <label for="company-contact" class="form-label">Empresa</label>
@@ -197,16 +197,13 @@
               </div>
               <div class="form-group">
                 <label for="message-contact" class="form-label">Mensaje</label>
-                <textarea id="message-contact" name="message" class="form-textarea" placeholder="¿Cómo podemos ayudarle?" style="min-height: 8rem;" required></textarea>
+                <textarea id="message-contact" name="message" class="form-textarea" placeholder="¿Cómo podemos ayudarle?" required></textarea>
               </div>
               <div class="form-checkbox">
                 <input type="checkbox" id="rgpd-contacto" name="rgpd" required>
                 <label for="rgpd-contacto">Acepto la Política de Privacidad y el tratamiento de mis datos para la gestión de esta consulta comercial (RGPD).</label>
               </div>
-              <button type="submit" id="submit-btn" class="btn form-submit btn-lg" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; background-color: #447854; color: white; width: 100%; height: 2.75rem; border-radius: 0.375rem;">
-                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="submit-icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-                </svg>
+              <button type="submit" id="submit-btn" class="btn form-submit btn-lg">
                 <span id="submit-text">Enviar mensaje</span>
               </button>
             </form>
@@ -215,14 +212,26 @@
       </div>
     </section>
 
-    <!-- Mapa Placeholder -->
-    <section style="height: 400px; width: 100%; background-color: var(--muted); display: flex; align-items: center; justify-content: center; border-top: 1px solid var(--border);">
-      <div style="text-align: center; color: var(--text-muted);">
-        <svg width="40" height="40" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="margin: 0 auto 0.5rem; opacity: 0.2;">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-        </svg>
-        <p style="font-weight: 500; font-style: italic;">Mapa de ubicación (Google Maps Placeholder)</p>
+    <!-- Mapa: sección integrada (mismo fondo y ancho que contacto, sin filtros) -->
+    <section class="contact-map-section" aria-label="Ubicación de ABM Crops">
+      <div class="contact-map-container">
+        <div class="contact-map-header">
+          <h3 class="contact-map-title">Cómo llegar</h3>
+          <a href="https://maps.app.goo.gl/v5GNUgHBknJ21BeE8" target="_blank" rel="noopener noreferrer" class="contact-map-link">Abrir en Google Maps</a>
+        </div>
+        <div class="contact-map-wrap">
+          <iframe
+            class="contact-map-iframe"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.057112104279!2d-3.1756086!3d39.9767667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd427f2a57d6b34d%3A0x8a2d13d57c692fc0!2sJose%20Abril%20S.L.%20-%20Productos%20Don%20Jose%20(Legumbres%20y%20leguminosas%20en%20general)!5e1!3m2!1ses!2ses!4v1772047779107!5m2!1ses!2ses"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación ABM Crops - Jose Abril S.L. Productos Don José">
+          </iframe>
+        </div>
       </div>
     </section>
   </main>
@@ -232,8 +241,7 @@
       <div class="footer-grid">
         <div>
           <div class="footer-logo">
-            <span class="footer-logo-box">ABM</span>
-            Crops
+            <img src="assets/logos/abmCrops.png" alt="ABM Crops" class="footer-logo-img">
           </div>
           <p style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.6); margin-bottom: 1rem;">
             Soluciones integrales B2B en materias primas para la industria alimentaria a nivel global.
@@ -317,7 +325,6 @@
       const form = document.getElementById('contact-form');
       const submitBtn = document.getElementById('submit-btn');
       const submitText = document.getElementById('submit-text');
-      const submitIcon = document.getElementById('submit-icon');
 
       if (!form || !submitBtn) return;
 
@@ -347,7 +354,6 @@
         submitBtn.disabled = true;
         submitBtn.classList.add('btn-loading');
         submitText.textContent = 'Enviando...';
-        submitIcon.style.display = 'none';
 
         try {
           // Simular envío (reemplazar con tu endpoint real)
@@ -363,15 +369,14 @@
           });
 
           if (response.ok) {
-            // Éxito: mostrar toast y limpiar formulario
+            // Éxito: mostrar toast, limpiar y redirigir a gracias
             showToast(
               'Mensaje enviado',
               'Nos pondremos en contacto con usted lo antes posible.',
               'success'
             );
-            
-            // Limpiar formulario
             form.reset();
+            window.location.href = 'gracias.html';
           } else {
             throw new Error('Error al enviar el formulario');
           }
@@ -387,7 +392,6 @@
           submitBtn.disabled = false;
           submitBtn.classList.remove('btn-loading');
           submitText.textContent = 'Enviar mensaje';
-          submitIcon.style.display = 'block';
         }
       });
     });

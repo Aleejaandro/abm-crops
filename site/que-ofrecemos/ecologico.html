@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Ecológico - Área de especialización de ABM Crops">
   <title>Ecológico - ABM Crops</title>
+  <link rel="icon" href="../assets/logos/abmCrops.png" type="image/png">
   <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
   <header>
     <div class="header-container">
-      <a href="/" class="logo">
-        <span class="logo-box">ABM</span>
-        Crops
+      <a href="../index.html" class="logo">
+        <img src="../assets/logos/abmCrops.png" alt="ABM Crops" class="logo-img">
       </a>
       <nav class="desktop-nav">
         <a href="/">Inicio</a>
@@ -111,23 +111,17 @@
         <h2 class="section-title">Ventajas Competitivas</h2>
         <div class="grid grid-3" style="text-align: center;">
           <div style="display: flex; flex-direction: column; align-items: center;">
-            <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--primary); margin-bottom: 1rem;">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-            </svg>
+            <img src="../assets/icons/shield-check.svg" alt="" width="48" height="48" style="margin-bottom: 1rem; object-fit: contain;" aria-hidden="true">
             <h4 style="font-weight: 700; font-size: 1.125rem; margin-bottom: 0.5rem;">Seguridad Alimentaria</h4>
             <p style="color: var(--text-muted); font-size: 0.875rem;">Garantías técnicas y certificaciones audibles en todo momento.</p>
           </div>
           <div style="display: flex; flex-direction: column; align-items: center;">
-            <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--primary); margin-bottom: 1rem;">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-            </svg>
+            <img src="../assets/icons/factory.svg" alt="" width="48" height="48" style="margin-bottom: 1rem; object-fit: contain;" aria-hidden="true">
             <h4 style="font-weight: 700; font-size: 1.125rem; margin-bottom: 0.5rem;">Escalabilidad Industrial</h4>
             <p style="color: var(--text-muted); font-size: 0.875rem;">Capacidad de absorber picos de demanda sin romper stock.</p>
           </div>
           <div style="display: flex; flex-direction: column; align-items: center;">
-            <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--primary); margin-bottom: 1rem;">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-            </svg>
+            <img src="../assets/icons/trend-up.svg" alt="" width="48" height="48" style="margin-bottom: 1rem; object-fit: contain;" aria-hidden="true">
             <h4 style="font-weight: 700; font-size: 1.125rem; margin-bottom: 0.5rem;">Rentabilidad</h4>
             <p style="color: var(--text-muted); font-size: 0.875rem;">Optimización de costes logísticos y formatos eficientes.</p>
           </div>
@@ -142,7 +136,7 @@
           <p style="color: var(--text-muted);">Un gestor especializado se pondrá en contacto con usted en menos de 24 horas laborables.</p>
         </div>
         
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="form-container">
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="form-container" novalidate>
           <div class="form-grid">
             <div class="form-group">
               <label for="name-eco" class="form-label">Nombre</label>
@@ -179,8 +173,7 @@
       <div class="footer-grid">
         <div>
           <div class="footer-logo">
-            <span class="footer-logo-box">ABM</span>
-            Crops
+            <img src="../assets/logos/abmCrops.png" alt="ABM Crops" class="footer-logo-img">
           </div>
           <p style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.6); margin-bottom: 1rem;">
             Soluciones integrales B2B en materias primas para la industria alimentaria a nivel global.
@@ -220,6 +213,7 @@
     </div>
   </footer>
 
+  <div id="toast-container" class="toast-container"></div>
   <script src="../assets/main.js"></script>
 </body>
 </html>

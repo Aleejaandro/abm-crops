@@ -107,4 +107,80 @@ document.addEventListener('DOMContentLoaded', function() {
   if (currentYearEl) {
     currentYearEl.textContent = String(new Date().getFullYear());
   }
+
+  // Toasts y validación de formularios (como en contacto)
+  window.showToast = function(title, description, type) {
+    type = type || 'success';
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+    const toast = document.createElement('div');
+    toast.className = 'toast ' + type;
+    const iconSvg = type === 'success'
+      ? '<svg class="toast-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #447854;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>'
+      : '<svg class="toast-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #dc2626;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>';
+    toast.innerHTML = iconSvg +
+      '<div class="toast-content"><div class="toast-title">' + title + '</div><div class="toast-description">' + description + '</div></div>' +
+      '<button class="toast-close" type="button"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>';
+    toast.querySelector('.toast-close').addEventListener('click', function() { toast.remove(); });
+    container.appendChild(toast);
+    setTimeout(function() {
+      toast.style.animation = 'slideIn 0.3s ease-out reverse';
+      setTimeout(function() { toast.remove(); }, 300);
+    }, 5000);
+  };
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  document.querySelectorAll('form[novalidate]').forEach(function(form) {
+    if (!form.action || form.action.indexOf('formspree') === -1) return;
+    if (form.id === 'contact-form') return;
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var required = form.querySelectorAll('[required]');
+      var valid = true;
+      for (var i = 0; i < required.length; i++) {
+        var el = required[i];
+        if (el.type === 'checkbox') {
+          if (!el.checked) { valid = false; break; }
+        } else if (el.type === 'email') {
+          if (!emailRegex.test((el.value || '').trim())) {
+            if (typeof showToast === 'function') showToast('Error', 'Por favor, ingrese un email válido.', 'error');
+            return;
+          }
+        } else {
+          if ((el.value || '').trim() === '') { valid = false; break; }
+        }
+      }
+      if (!valid) {
+        if (typeof showToast === 'function') showToast('Error', 'Por favor, complete todos los campos obligatorios.', 'error');
+        return;
+      }
+      var submitBtn = form.querySelector('button[type=submit]');
+      var originalText = submitBtn ? submitBtn.textContent : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.classList.add('btn-loading');
+        submitBtn.textContent = 'Enviando...';
+      }
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response) {
+        if (response.ok) {
+          if (typeof showToast === 'function') showToast('Mensaje enviado', 'Nos pondremos en contacto con usted lo antes posible.', 'success');
+          form.reset();
+          var fromSub = window.location.pathname.indexOf('que-ofrecemos') !== -1;
+          window.location.href = (fromSub ? '../' : '') + 'gracias.html';
+        } else throw new Error('Error al enviar');
+      }).catch(function() {
+        if (typeof showToast === 'function') showToast('Error', 'Hubo un problema al enviar. Por favor, inténtelo de nuevo.', 'error');
+      }).finally(function() {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('btn-loading');
+          submitBtn.textContent = originalText;
+        }
+      });
+    });
+  });
 });
