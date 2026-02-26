@@ -252,7 +252,7 @@ main {
 }
 
 .hero-home .hero-bg {
-  background-image: url("images/hero-bg.jpg");
+  background-image: url("../assets/images/hero-bg.jpg");
   background-size: cover;
   background-position: center center;
   transform: scale(1.02);
@@ -365,7 +365,7 @@ main {
 }
 
 .hero-sostenibilidad-bg {
-  background-image: url("images/sostenibilidad.jpg");
+  background-image: url("../assets/images/sostenibilidad.jpg");
   background-size: cover;
   background-position: center center;
   opacity: 1;
@@ -514,7 +514,7 @@ main {
   width: 100%;
   aspect-ratio: 16 / 9;
   background-color: var(--muted);
-  background-image: url("images/sostenibilidad.jpg");
+  background-image: url("../assets/images/sostenibilidad.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -981,7 +981,7 @@ section {
   width: 100%;
   height: 100%;
   background-color: var(--muted);
-  background-image: url("images/calidad.jpg");
+  background-image: url("../assets/images/calidad.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1530,6 +1530,7 @@ section {
 .split-half {
   width: 100%;
   padding: 3rem;
+  padding-bottom: 1.25rem;
   display: flex;
   align-items: center;
   position: relative;
@@ -1539,6 +1540,7 @@ section {
   .split-half {
     width: 50%;
     padding: 6rem;
+    padding-bottom: 2rem;
   }
 }
 
@@ -1563,13 +1565,13 @@ section {
 .split-bg-quality {
   background-image:
     linear-gradient(rgba(246, 249, 247, 0.86), rgba(246, 249, 247, 0.86)),
-    url("images/calidad.jpg");
+    url("../assets/images/calidad.jpg");
 }
 
 .split-bg-sustainability {
   background-image:
     linear-gradient(rgba(15, 74, 52, 0.74), rgba(15, 74, 52, 0.74)),
-    url("images/sostenibilidad.jpg");
+    url("../assets/images/sostenibilidad.jpg");
 }
 
 .split-content {
@@ -1829,6 +1831,12 @@ section {
   padding-bottom: 2rem;
 }
 
+/* Inicio: formulario inferior con el mismo filtro verde que Contacto */
+#contacto.section.section-contacto-inicio {
+  background-color: rgba(226, 235, 229, 0.62);
+  border-top: 1px solid rgba(190, 203, 196, 0.72);
+}
+
 @media (min-width: 768px) {
   #contacto.section {
     padding-bottom: 2.5rem;
@@ -2054,12 +2062,12 @@ section {
 }
 
 #faq.section {
-  padding-top: 1.5rem;
+  padding-top: 0.25rem;
 }
 
 @media (min-width: 768px) {
   #faq.section {
-    padding-top: 2.25rem;
+    padding-top: 0.75rem;
   }
 }
 
