@@ -1986,11 +1986,11 @@ section {
   min-height: 5.5rem;
 }
 
-/* Mapa de contacto: sección integrada (mismo fondo y ancho que contacto), sin filtros */
+/* Mapa de contacto: sección Cómo llegar con fondo verde (como resto de contacto) */
 .contact-map-section {
   width: 100%;
   padding: 2rem 0 3rem;
-  background-color: #FDFBF8;
+  background-color: rgba(226, 235, 229, 0.62);
   border-top: 1px solid rgba(190, 203, 196, 0.72);
 }
 
